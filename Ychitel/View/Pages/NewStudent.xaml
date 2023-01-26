@@ -1,0 +1,46 @@
+﻿<Page x:Class="Ychitel.View.Pages.NewStudent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ychitel.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NewStudent">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <UniformGrid>
+                <TextBlock>Введите Фамилию</TextBlock>
+                <TextBox x:Name="RegFameliaTextBlock"></TextBox>
+            </UniformGrid>
+            <UniformGrid>
+                <TextBlock>Введите Имя</TextBlock>
+                <TextBox x:Name="RegNameTxtBlock"></TextBox>
+            </UniformGrid>
+            <UniformGrid>
+                <TextBlock>Введите отчество</TextBlock>
+                <TextBox x:Name="RegOtchestvoTeBlock"></TextBox>
+            </UniformGrid>
+            <UniformGrid>
+                <TextBlock>Специальность</TextBlock>
+                <ComboBox x:Name="SpecComboBox" Width="100"/>
+            </UniformGrid>
+            <UniformGrid>
+                <TextBlock>Год поступления</TextBlock>
+                <ComboBox x:Name="GodComboBox" Width="100"/>
+            </UniformGrid>
+            <UniformGrid>
+                <TextBlock>Форма обучения</TextBlock>
+                <ComboBox x:Name="FormComboBox" Width="100"/>
+            </UniformGrid>
+            <UniformGrid>
+                <TextBlock>Название группы</TextBlock>
+                <ComboBox x:Name="NameComboBox" Width="100"/>
+            </UniformGrid>
+            <UniformGrid>
+                <Button x:Name="SignButton" Click="SignButtonClick">Создать студента</Button>
+            </UniformGrid>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="12308931e49748c1952d3ae03cb70a9a" Name="Diagram1">
+        <EntityTypeShape EntityType="TeacherBookModel.FormTime" Width="1.5" PointX="0.75" PointY="7.5" />
+        <EntityTypeShape EntityType="TeacherBookModel.Groups" Width="1.5" PointX="0.75" PointY="9.875" />
+        <EntityTypeShape EntityType="TeacherBookModel.History" Width="1.5" PointX="5.25" PointY="4" />
+        <EntityTypeShape EntityType="TeacherBookModel.Journals" Width="1.5" PointX="8.25" PointY="4.125" />
+        <EntityTypeShape EntityType="TeacherBookModel.Professions" Width="1.5" PointX="0.75" PointY="2.125" />
+        <EntityTypeShape EntityType="TeacherBookModel.Role" Width="1.5" PointX="2.75" PointY="11.5" />
+        <EntityTypeShape EntityType="TeacherBookModel.Status" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="TeacherBookModel.Students" Width="1.5" PointX="3" PointY="3.375" />
+        <EntityTypeShape EntityType="TeacherBookModel.Subjects" Width="1.5" PointX="6" PointY="1.375" />
+        <EntityTypeShape EntityType="TeacherBookModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="11.125" />
+        <EntityTypeShape EntityType="TeacherBookModel.TeacherHasSubjects" Width="1.5" PointX="8.25" PointY="7.625" />
+        <EntityTypeShape EntityType="TeacherBookModel.Teachers" Width="1.5" PointX="3" PointY="8.25" />
+        <EntityTypeShape EntityType="TeacherBookModel.Users" Width="1.5" PointX="5" PointY="11.25" />
+        <EntityTypeShape EntityType="TeacherBookModel.YearAdd" Width="1.5" PointX="0.75" PointY="4.5" />
+        <AssociationConnector Association="TeacherBookModel.FK_Students_FormTime" />
+        <AssociationConnector Association="TeacherBookModel.FK_Students_Groups" />
+        <AssociationConnector Association="TeacherBookModel.FK_History_Status" />
+        <AssociationConnector Association="TeacherBookModel.FK_History_Students" />
+        <AssociationConnector Association="TeacherBookModel.FK_History_Teachers" />
+        <AssociationConnector Association="TeacherBookModel.FK_Journal_Students" />
+        <AssociationConnector Association="TeacherBookModel.FK_Journal_Subjects" />
+        <AssociationConnector Association="TeacherBookModel.FK_Students_Professions" />
+        <AssociationConnector Association="TeacherBookModel.FK_Users_Role" />
+        <AssociationConnector Association="TeacherBookModel.FK_Students_YearAdd" />
+        <AssociationConnector Association="TeacherBookModel.FK_TeacherHasSubjects_Subjects" />
+        <AssociationConnector Association="TeacherBookModel.FK_TeacherHasSubjects_Teachers" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

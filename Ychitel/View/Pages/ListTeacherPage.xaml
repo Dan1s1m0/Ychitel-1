@@ -1,0 +1,31 @@
+﻿<Page x:Class="Ychitel.View.Pages.ListTeacherPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ychitel.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListTeacherPage">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <UniformGrid>
+                <Button x:Name="NewStudentButton" Click="NewStudentButtonClick">Добавить студента</Button>
+            </UniformGrid>
+            <UniformGrid>
+                <Button x:Name="NewGradeButton" Click="NewGradeButtonClick">Добавить оценку</Button>
+            </UniformGrid>
+            <UniformGrid>
+                <Button x:Name="StudentButton" Click="StudentButtonClick">Список студентов</Button>
+            </UniformGrid>
+            <UniformGrid>
+                <Button x:Name="SelectedGradeButton" Click="SelectedGradeClick">Редактировать оценку</Button>
+            </UniformGrid>
+            <UniformGrid>
+                <Button x:Name="DeleteGradeButton" Click="DeleteGradeClick">Удалить Студента</Button>
+            </UniformGrid>
+        </StackPanel>
+
+    </Grid>
+</Page>

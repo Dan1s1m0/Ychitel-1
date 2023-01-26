@@ -1,0 +1,18 @@
+﻿<Window x:Class="Ychitel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ychitel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Image Source="C:\Users\311-19(student)\source\repos\Ychitel\Ychitel\Assets\Images\wsr-300.png" HorizontalAlignment="Left"/>
+        <Button Content="Назад" HorizontalAlignment="Right" Width="60" Background="Transparent" BorderBrush="Transparent" x:Name="BackButton" Click="BackButtonClick"/>
+        <Frame Grid.Row="1" x:Name="MainFrame"  NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
