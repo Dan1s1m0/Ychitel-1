@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace Ychitel.View.Pages
     public partial class ListStudentPage : Page
     {
         Core db = new Core();
-        
+        Word.Application application;
         public ListStudentPage()
         {
             InitializeComponent();
@@ -92,6 +93,24 @@ namespace Ychitel.View.Pages
 
 
 
+            application.Visible = true;
+        }
+
+        private void ButtonDiplomClick(object sender, RoutedEventArgs e)
+        {
+            Button activeButton=sender as Button;
+
+            Students activeStudent = activeButton.DataContext as Students;
+            application = new Word.Application();
+            String file = $"{Directory.GetCurrentDirectory()}\\Docs\\Диплом.doc";
+            if (File.Exists(file))
+            {
+                Word.Document doc = application.Documents.Open(file);
+                doc.Activate();
+                doc.Bookmarks["FIO"].Range.Text = activeStudent.FIO;
+                application.Visible = true;
+                doc.SaveAs($"{Directory.GetCurrentDirectory()}\\Docs\\{activeStudent.LastName}_Диплом.doc");
+            }
             application.Visible = true;
         }
     }

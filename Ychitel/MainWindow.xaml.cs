@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Ychitel.View.Pages;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace Ychitel
 {
@@ -21,10 +22,12 @@ namespace Ychitel
     /// </summary>
     public partial class MainWindow : Window
     {
+        Word.Application application;
         public MainWindow()
         {
             InitializeComponent();
             MainFrame.Navigate(new AuthPages());
+            application = new Word.Application();
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -34,6 +37,12 @@ namespace Ychitel
                 MainFrame.GoBack();
             }
 
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            App.Current.Shutdown();
+            application.Quit();
         }
     }
 }
