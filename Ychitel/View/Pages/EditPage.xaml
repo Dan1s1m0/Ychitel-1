@@ -17,13 +17,13 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
             <TextBlock Text="Выберите группу" />
-            <ComboBox x:Name="SortTextBox" Width="100"/>
+            <ComboBox x:Name="SortTextBox" SelectionChanged="SortTextBoxSelectionChanged" Width="100"/>
 
         </StackPanel>
         <DataGrid Grid.Row="2" x:Name="ProductDataGrid" HorizontalContentAlignment="Stretch" AutoGenerateColumns="False" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО" Binding="{Binding IdStudent}"/>
-                <DataGridTextColumn Header="Специальность" Binding="{Binding IdSubject}"/>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding Students.FIO}"/>
+                <DataGridTextColumn Header="Специальность" Binding="{Binding Subjects.NameSubject}"/>
                 <DataGridTextColumn Header="Дата" Binding="{Binding DateEvalution}"/>
                 <DataGridTextColumn Header="Оценка" Binding="{Binding Evaluation}"/>
                 <DataGridTemplateColumn Header="Действия">

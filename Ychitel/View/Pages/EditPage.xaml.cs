@@ -25,7 +25,41 @@ namespace Ychitel.View.Pages
         public EditPage()
         {
             InitializeComponent();
+            
             ProductDataGrid.ItemsSource = db.context.Journals.ToList();
-        }       
+            var arrayGroups = new List<Groups>
+                    {
+                    new Groups()
+                    {
+                    IdGroup = 0,
+                    NameGroup = "Все"
+                    }
+                    };
+            arrayGroups.AddRange(db.context.Groups.ToList());
+
+                    
+            
+            SortTextBox.ItemsSource = arrayGroups;
+            SortTextBox.DisplayMemberPath = "NameGroup";
+            SortTextBox.SelectedValuePath = "IdGroup";
+            SortTextBox.SelectedIndex= 0;
+           
+
+        }
+        private void SortTextBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           
+
+            int arrayGroups = Convert.ToInt32(SortTextBox.SelectedValue);
+            if (SortTextBox.SelectedIndex == 0)
+            {
+                ProductDataGrid.ItemsSource = db.context.Journals.ToList();
+            }
+            else
+            {
+                ProductDataGrid.ItemsSource = db.context.Journals.Where(x => x.Students.IdGroup == arrayGroups).ToList();
+            }
+           
+        }
     }
 }
