@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controlers\UsersController.cs" />
     <Compile Include="Model\PartialClasses\StudentPartial.cs" />
     <Compile Include="View\Pages\AuthPages.xaml.cs">
       <DependentUpon>AuthPages.xaml</DependentUpon>
@@ -236,7 +237,6 @@
   <ItemGroup>
     <Folder Include="Assets\Dictionaries\" />
     <Folder Include="Assets\Fonts\" />
-    <Folder Include="ViewModel\" />
     <Folder Include="View\Windows\" />
   </ItemGroup>
   <ItemGroup>

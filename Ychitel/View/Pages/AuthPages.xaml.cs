@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ychitel.Controlers;
 using Ychitel.Model;
 
 namespace Ychitel.View.Pages
@@ -34,11 +35,10 @@ namespace Ychitel.View.Pages
             {
 
                 //считаем количество записей в таблице с заданными параметрами (логин, пароль)
-                Users logUsers = db.context.Users.Where(
-                x => x.Login == LogInTextBox.Text && x.Password == AuthPasswordBox.Password
-                ).FirstOrDefault();
+                UsersController obj = new UsersController();
+                bool result = obj.Auth(LogInTextBox.Text, AuthPasswordBox.Password);
 
-                if (logUsers == null)
+                if (result == false)
                 {
                     MessageBox.Show("Такой пользователь отсутствует!",
                     "Уведомление",
@@ -50,19 +50,19 @@ namespace Ychitel.View.Pages
 
                 {
 
-                    switch (logUsers.IdRole)
-                    {
+                    //switch (logUsers.IdRole)
+                    //{
 
-                        case 1:
-                            this.NavigationService.Navigate(new StudentPage());
+                    //    case 1:
+                    //        this.NavigationService.Navigate(new StudentPage());
 
-                            break;
-                        case 2:
-                            this.NavigationService.Navigate(new ListTeacherPage());
+                    //        break;
+                    //    case 2:
+                    //        this.NavigationService.Navigate(new ListTeacherPage());
 
-                            break;
+                    //        break;
 
-                    }
+                    //}
 
 
                 }
