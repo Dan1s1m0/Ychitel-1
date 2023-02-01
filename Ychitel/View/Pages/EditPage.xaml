@@ -34,7 +34,7 @@
 
                             <StackPanel Orientation="Horizontal">
 
-                                <Button Content="Изменить"></Button>
+                                <Button x:Name="JournalStedents" Click="JournalStedentsClick" Content="Изменить"></Button>
 
                             </StackPanel>
 

@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Ychitel.Model;
 using Word = Microsoft.Office.Interop.Word;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Ychitel.View.Pages
 {
@@ -25,6 +26,7 @@ namespace Ychitel.View.Pages
     {
         Core db = new Core();
         Word.Application application;
+        List<Students> arrayStudents;
         public ListStudentPage()
         {
             InitializeComponent();
@@ -112,6 +114,57 @@ namespace Ychitel.View.Pages
                 doc.SaveAs($"{Directory.GetCurrentDirectory()}\\Docs\\{activeStudent.LastName}_Диплом.doc");
             }
             application.Visible = true;
+        }
+
+        private void ButtonExelTextBoxClick(object sender, RoutedEventArgs e)
+        {
+            Excel.Application aplication = new Excel.Application();
+            aplication.Visible = true;
+
+
+            /*количество листов*/
+
+            aplication.SheetsInNewWorkbook = 1;
+
+            /*добавляем рабочую книгу*/
+            Excel.Workbook workbook = aplication.Workbooks.Add(Type.Missing);
+
+            /*создаем лист*/
+            Excel.Worksheet worksheet = workbook.ActiveSheet;
+
+            //worksheet.StandardWidth = 30;
+            //worksheet.Columns.ColumnWidth = 30;
+
+            worksheet.Name = "Отчет студентов";
+
+            int rowIndex = 2;
+
+            worksheet.Cells[1][1] = "ФИО";
+            worksheet.Cells[2][1] = "Группа";
+            worksheet.Cells[3][1] = "Специальность";
+            worksheet.Cells[4][1] = "Форма обучения";
+            worksheet.Cells[5][1] = "Год поступления";
+
+            int i = Convert.ToInt32(ComboBoxSort.SelectedValue);
+            if (i != 0)
+            {
+                arrayStudents = db.context.Students.Where(x => x.IdGroup == i).ToList();
+                foreach (var item in arrayStudents)
+                {
+                    worksheet.Cells[1][rowIndex] = item.FIO;
+                    worksheet.Cells[2][rowIndex] = item.Groups.NameGroup;
+                    worksheet.Cells[3][rowIndex] = item.Professions.NameProfession;
+                    worksheet.Cells[4][rowIndex] = item.FormTime.Name;
+                    worksheet.Cells[5][rowIndex] = item.YearAdd.Year;
+
+                    rowIndex++;
+
+                }
+                Excel.Range rangeBorders = worksheet.Range[worksheet.Cells[1][1], worksheet.Cells[5][rowIndex - 1]];
+                rangeBorders.Borders[Excel.XlBordersIndex.xlEdgeBottom].LineStyle = rangeBorders.Borders[Excel.XlBordersIndex.xlEdgeLeft].LineStyle = rangeBorders.Borders[Excel.XlBordersIndex.xlEdgeRight].LineStyle = rangeBorders.Borders[Excel.XlBordersIndex.xlEdgeTop].LineStyle =
+                     rangeBorders.Borders[Excel.XlBordersIndex.xlInsideHorizontal].LineStyle = rangeBorders.Borders[Excel.XlBordersIndex.xlInsideVertical].LineStyle = Excel.XlLineStyle.xlContinuous;
+                worksheet.Columns.AutoFit();
+            }
         }
     }
 }

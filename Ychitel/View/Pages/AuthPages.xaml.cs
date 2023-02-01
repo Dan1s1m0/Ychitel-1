@@ -50,19 +50,19 @@ namespace Ychitel.View.Pages
 
                 {
 
-                    //switch (logUsers.IdRole)
-                    //{
+                    switch (obj.GetActiveUser(LogInTextBox.Text, AuthPasswordBox.Password).IdRole)
+                    {
 
-                    //    case 1:
-                    //        this.NavigationService.Navigate(new StudentPage());
+                        case 1:
+                            this.NavigationService.Navigate(new StudentPage());
 
-                    //        break;
-                    //    case 2:
-                    //        this.NavigationService.Navigate(new ListTeacherPage());
+                            break;
+                        case 2:
+                            this.NavigationService.Navigate(new ListTeacherPage());
 
-                    //        break;
+                            break;
 
-                    //}
+                    }
 
 
                 }

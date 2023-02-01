@@ -31,5 +31,20 @@ namespace Ychitel.Controlers
             }
 
         }
+      
+        /// <summary>
+        /// Проверка авторизации 
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public Users GetActiveUser(string login, string password)
+        {
+            Users logUsers = db.context.Users.Where(
+              x => x.Login == login && x.Password == password
+              ).FirstOrDefault();
+            return logUsers;
+
+        }
     }
 }

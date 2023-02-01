@@ -61,5 +61,10 @@ namespace Ychitel.View.Pages
             }
            
         }
+
+        private void JournalStedentsClick(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new JournalsStudentsPage());
+        }
     }
 }

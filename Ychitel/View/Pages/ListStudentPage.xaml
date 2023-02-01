@@ -17,8 +17,8 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
             <TextBlock Text="Выберите группу" />
-            <ComboBox x:Name="SortTextBox" Width="100"/>
-            <Button x:Name="ButtonTextBox" >Вывод отчета</Button>
+            <ComboBox x:Name="ComboBoxSort" Width="100"/>
+            <Button x:Name="ButtonExelTextBox" Click="ButtonExelTextBoxClick">Вывод Exel</Button>
             <Button x:Name="ButtonWordTextBox" Click="ButtonWordTextBoxClick">Вывод Word</Button>
 
         </StackPanel>
